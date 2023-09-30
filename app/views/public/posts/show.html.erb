@@ -1,0 +1,62 @@
+<p id="notice"></p>
+
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-9">
+<h4>投稿詳細</h4>
+
+
+
+   <div>
+     <div>
+      　<%#= @post.user.user_photo %>  <%#= @post.user.nickname %>
+     </div>
+
+     <div>
+      　<%#= @post.post_content %>
+     </div>
+     <p>
+        <%#= @post.post_photo %>
+     </p>
+
+     <p>
+        <%#= @post.tag.name %>
+     </p>
+   </div>
+
+   <%# if @post.favorite?(current_user) %>
+    # 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ
+    <%#= link_to post_favorite_path(@post.id), method: :delete do %>
+        <span style="color:red;">❤︎</span>
+    <%# end %>
+   <%# else %>
+    # 一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ
+    <%#= link_to post_favorites_path(@post.id), method: :post do %>
+        <#span>❤︎<#/span>
+    <%# end %>
+   <%# end %>
+
+    <h4>コメント</h4>
+     <%#= form_with model: [@post,@comment], method: :post do |f| %>
+
+      <div>
+       <%#= f.text_area :comment %>
+      </div>
+
+      <div>
+       <%#= f.hidden_field :post_id, value: @post.id %>
+      </div>
+
+      <div>
+       <%#= f.submit 'コメントする', class: "btn btn-success" %>
+      </div>
+     <%# end %>
+
+     <%# @comments.each do |comment| %>
+    <div>
+       <%#= comment.comment_content %>
+    </div>
+     <%# end %>
+   </div>
+ </div>
+</div>

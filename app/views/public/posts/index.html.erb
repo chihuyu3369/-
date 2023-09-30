@@ -10,24 +10,24 @@
       <th>ニックネーム</th>
       <th>タイトル</th>
      </tr>
-     <% @posts.each do |post| %>
+     <%# @posts.each do |post| %>
      <tr>
       <td>
-       <%= link_to user_path(post.user.id) do %>
-       <% image_tag post.user.get_profile_image(100,100) %>
-       <% end %>
+       <%#= link_to user_path(post.user.id) do %>
+       <%# image_tag post.user.get_profile_image(100,100) %>
+       <%# end %>
       </td>
 
       <td class= "nickname">
-      <%= link_to post.nickname, user_path(post.user.id) %>
+      <%#= link_to post.nickname, user_path(post.user.id) %>
       </td>
 
       <td class= "Title">
-      <%= link_to post.title, post_path(post.id) %>
+      <%#= link_to post.title, post_path(post.id) %>
       </td>
 
      </tr>
-     <% end %>
+     <%# end %>
     </table>
 
  </div>

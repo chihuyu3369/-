@@ -1,10 +1,10 @@
-class Public::PostController < ApplicationController
+class Public::PostsController < ApplicationController
 
     #ユーザーのログイン状態を確かめる。indexはログインしてなくても閲覧可能にしてます。
     before_action :authenticate_user!, only: [:show, :create]
 
     def new
-        @post = current_user.posts.new
+        @post = Post.new
     end
 
     def index

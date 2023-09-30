@@ -6,7 +6,7 @@
 
 
 
-<%= form_with model: @post , do |f| %>
+<%= form_with model: @post ,url:post_path do |f| %>
 
   <div>
   画像 <%= f.file_field :photo, accept: "image/*" %>
