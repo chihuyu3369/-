@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+    <title>AgriCircle</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/745cec52c4.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+           <a class="navbar-brand p-3" href="/">AgriCircle</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+            <li class="nav-item">
+             <%#= link_to "投稿一覧" ,admin_items_index_path, class: 'nav-link text-white' %>
+            <li class="nav-item">
+             <%#= link_to "会員一覧" ,admin_customers_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "コメント一覧" ,admin_top_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "ログアウト" , destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %>
+            </li>
+            <% elsif user_signed_in? %>
+            <li class="nav-item">
+              <%#= link_to "マイページ", , class: 'nav-link text-white' %>
+            <li class="nav-item">
+             <%#= link_to "投稿一覧", , class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "新規投稿",, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "ログアウト",  method: :delete, class: 'nav-link text-white' %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%#= link_to "投稿一覧", , class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "商品一覧", , class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "新規登録", , class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%#= link_to "ログイン", , class: 'nav-link text-white'  %>
+            </li>
+
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+     <footer>
+      <div class="container mt-5">
+        <div class="row">
+        </div>
+      </div>
+     </footer>
   </body>
 </html>

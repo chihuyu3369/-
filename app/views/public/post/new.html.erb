@@ -1,0 +1,30 @@
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h4>新規投稿</h4>
+
+
+
+<%= form_with model: @post , do |f| %>
+
+  <div>
+  画像 <%= f.file_field :photo, accept: "image/*" %>
+  </div>
+
+  <div>
+  タイトル <%= f.text_field :title %>
+  </div>
+
+  <div>
+  本文 <%= f.text_area :post %>
+  </div>
+
+
+
+ <div>
+  <%= f.submit '新規投稿', class: "btn btn-success" %>
+<% end %>
+  </div>
+ </div>
+</div>
